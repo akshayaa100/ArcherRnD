@@ -32,3 +32,8 @@ jobs:
     inputs:
       pathToPublish: $(Build.ArtifactstagingDirectory)
       artifactName: output.log
+  - task: Grunt@0
+    inputs:
+      gruntFile: 'getGroups.js'
+      targets: 
+      gruntCli: 'node_modules/grunt-cli/bin/grunt'
