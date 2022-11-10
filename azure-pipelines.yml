@@ -18,20 +18,6 @@ jobs:
   steps:
   - checkout: self
     clean: true
-  - task: PowerShell@2
-    displayName: PowerShell Script
-    inputs:
-      filePath: getGroups.ps1
-      #arguments: $(username) $(password)
-  - task: CopyFiles@2
-    inputs:
-      Contents: '*.log'
-      targetfolder: $(Build.ArtifactstagingDirectory)
-       echo $(Build.ArtifactstagingDirectory)
-  - task: PublishBuildArtifacts@1
-    inputs:
-      pathToPublish: $(Build.ArtifactstagingDirectory)
-      artifactName: output.log
   - task: Grunt@0
     inputs:
       gruntFile: 'getGroups.js'
